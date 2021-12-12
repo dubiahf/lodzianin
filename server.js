@@ -6,40 +6,44 @@ const fs = require( 'fs' ),
 const T = new Twit(config);
 
 //time
-var d=new Date();
-var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
+// var d=new Date();
+// var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
 
-if (ahour<=9) ahour="0"+ahour;
-if (amin<=9) amin="0"+amin;
-if(asec<=9) asec="0"+asec;
+// if (ahour<=9) ahour="0"+ahour;
+// if (amin<=9) amin="0"+amin;
+// if(asec<=9) asec="0"+asec;
 
-var timetext=ahour+":"+amin+":"+asec;
+// var timetext=ahour+":"+amin+":"+asec;
 
 function randomFromArray(images){
     return images[Math.floor(Math.random()*images.length)];
 }
 
-/*
-function buildToday(){
-    var d=new Date();
-    var aday=d.getDay(), amonth=d.getMonth(), adate=d.getDate(), ayear=d.getFullYear();
-    var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
 
-    if (ahour<=9) ahour="0"+ahour;
-    if (amin<=9) amin="0"+amin;
-    if(asec<=9) asec="0"+asec;
+// function buildToday(){
+//     var d=new Date();
+//     var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
 
-    var pldatetext=plDayNames[aday]+", "+adate+" "+plMonthNames[amonth]+", "+ayear;
-    var timetext=ahour+":"+amin+":"+asec;
+//     if (ahour<=9) ahour="0"+ahour;
+//     if (amin<=9) amin="0"+amin;
+//     if(asec<=9) asec="0"+asec;
+
+//     timetext=ahour+":"+amin+":"+asec;
     
-    document.getElementById('datebox').innerHTML=pldatetext;
-    document.getElementById('timebox').innerHTML=timetext;
-}
+// }
 
-buildToday();
-setInterval(buildToday,1000);
-*/
+// setInterval(buildToday,1000);
+
 function tweetRandomImage(){
+
+  var d=new Date();
+  var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
+
+  if (ahour<=9) ahour="0"+ahour;
+  if (amin<=9) amin="0"+amin;
+  if (asec<=9) asec="0"+asec;
+
+  timetext=ahour+":"+amin+":"+asec;
 
     fs.readdir( __dirname + '/chooy', function( err, files ) {
       if ( err ){
@@ -73,7 +77,7 @@ function tweetRandomImage(){
             );
   
             T.post( 'statuses/update', {
-                status: ('@PolskaPolicja'),
+                status: (''),
                 media_ids: new Array( data.media_id_string )
             },
               function( err, data, response) {
@@ -109,9 +113,9 @@ function tweetRandomImage(){
     } );
   }
 
-console.log(
-  timetext+' // bot starts'
-);
+// console.log(
+//   timetext+' // bot starts'
+// );
 
 tweetRandomImage();
 
