@@ -5,34 +5,9 @@ const fs = require( 'fs' ),
 
 const T = new Twit(config);
 
-//time
-// var d=new Date();
-// var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
-
-// if (ahour<=9) ahour="0"+ahour;
-// if (amin<=9) amin="0"+amin;
-// if(asec<=9) asec="0"+asec;
-
-// var timetext=ahour+":"+amin+":"+asec;
-
 function randomFromArray(images){
     return images[Math.floor(Math.random()*images.length)];
 }
-
-
-// function buildToday(){
-//     var d=new Date();
-//     var ahour=d.getHours(), amin=d.getMinutes(), asec=d.getSeconds();
-
-//     if (ahour<=9) ahour="0"+ahour;
-//     if (amin<=9) amin="0"+amin;
-//     if(asec<=9) asec="0"+asec;
-
-//     timetext=ahour+":"+amin+":"+asec;
-    
-// }
-
-// setInterval(buildToday,1000);
 
 function tweetRandomImage(){
 
@@ -112,10 +87,6 @@ function tweetRandomImage(){
       }
     } );
   }
-
-// console.log(
-//   timetext+' // bot starts'
-// );
 
 tweetRandomImage();
 
