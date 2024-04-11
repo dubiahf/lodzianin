@@ -20,7 +20,7 @@ function tweetRandomImage(){
 
   timetext=ahour+":"+amin+":"+asec;
 
-    fs.readdir( __dirname + '/chooy', function( err, files ) {
+    fs.readdir( __dirname + '/pic_dir', function( err, files ) {
       if ( err ){
         console.log( 'error:', err );
       }
@@ -34,7 +34,7 @@ function tweetRandomImage(){
           timetext+' // opening an image...' 
         );
   
-        const imagePath = path.join( __dirname, '/chooy/' + randomFromArray( images ) ),
+        const imagePath = path.join( __dirname, '/pic_dir/' + randomFromArray( images ) ),
               b64content = fs.readFileSync( imagePath, { encoding: 'base64' } );
   
         console.log( 
